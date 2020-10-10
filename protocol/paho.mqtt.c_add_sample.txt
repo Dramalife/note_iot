@@ -1,0 +1,8 @@
+Example :
+	Add file dl_mqtt_client_pub.c;
+
+./src/samples/CMakeLists.txt:53:ADD_EXECUTABLE(dl_mqtt_client_pub dl_mqtt_client_pub.c)
+./src/samples/CMakeLists.txt:57:     MQTTAsync_subscribe MQTTAsync_publish MQTTAsync_publish_time MQTTClient_subscribe MQTTClient_publish dl_mqtt_client_pub MQTTClient_publish_async PROPERTIES
+./src/samples/CMakeLists.txt:65:TARGET_LINK_LIBRARIES(dl_mqtt_client_pub paho-mqtt3c)
+./src/samples/CMakeLists.txt:77:		dl_mqtt_client_pub
+./Makefile:96:SAMPLE_FILES_C = MQTTClient_publish MQTTClient_publish_async MQTTClient_subscribe dl_mqtt_client_pub
