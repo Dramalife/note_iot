@@ -23,6 +23,9 @@
 #define ADDRESS     "tcp://183.230.40.39:6002"
 //#define CLIENTID    "ExampleClientPub"
 #define CLIENTID    "636888257"
+#define USERNAME	"376241"
+#define PASSWORD	"iot00001"
+
 #define TOPIC       "MQTT Examples"
 #define PAYLOAD     "Hello World!"
 #define QOS         1
@@ -45,8 +48,8 @@ int main(int argc, char* argv[])
 
     conn_opts.keepAliveInterval = 20;
     conn_opts.cleansession = 1;
-    conn_opts.username="376241";	// product
-    conn_opts.password="iot00001";	// sn
+    conn_opts.username=USERNAME;
+    conn_opts.password=PASSWORD;
     if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
     {
         printf("Failed to connect, return code %d\n", rc);
