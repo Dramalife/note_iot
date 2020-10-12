@@ -44,6 +44,7 @@ then
 		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
 	elif [ "$2" = "sub" ]
+	then
 		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
 	else

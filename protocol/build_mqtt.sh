@@ -27,7 +27,8 @@ fi
 
 # Call script
 cd paho.mqtt_dl_sample
-./install_exec.sh $1
+echo "pass ($1)($2)"
+./install_exec.sh $1 $2
 ## Check return
 if [ $? = 0 ]
 then
