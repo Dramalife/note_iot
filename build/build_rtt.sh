@@ -6,6 +6,8 @@
 # Ref url : https://www.rt-thread.org/document/site/application-note/setup/qemu/ubuntu/an0005-qemu-ubuntu/
 #
 
+# Include
+source ~/note/lib_dramalife/terminal_color_bash.sh
 
 # Variables
 RTT_REPO=rt-thread
@@ -34,4 +36,9 @@ source ~/.env/env.sh
 scons
 
 # Run
-${TOP_DIR}/elf_run/qemu.sh
+if [ "$1" = "run" ]
+then
+	${TOP_DIR}/elf_run/qemu.sh
+else
+	echo -e ${DLTERM_WHITE}"\n\nIf need exec, type \"$0 run\" !!\n"${DLTERM_NONE}
+fi
