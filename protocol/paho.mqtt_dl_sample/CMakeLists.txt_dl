@@ -51,10 +51,11 @@ ADD_EXECUTABLE(MQTTAsync_publish_time MQTTAsync_publish_time.c)
 ADD_EXECUTABLE(MQTTClient_subscribe MQTTClient_subscribe.c)
 ADD_EXECUTABLE(MQTTClient_publish MQTTClient_publish.c)
 ADD_EXECUTABLE(dl_mqtt_client_pub dl_mqtt_client_pub.c)
+ADD_EXECUTABLE(dl_mqtt_client_sub dl_mqtt_client_sub.c)
 ADD_EXECUTABLE(MQTTClient_publish_async MQTTClient_publish_async.c)
 
 SET_TARGET_PROPERTIES(
-     MQTTAsync_subscribe MQTTAsync_publish MQTTAsync_publish_time MQTTClient_subscribe MQTTClient_publish dl_mqtt_client_pub MQTTClient_publish_async PROPERTIES
+     MQTTAsync_subscribe MQTTAsync_publish MQTTAsync_publish_time MQTTClient_subscribe MQTTClient_publish dl_mqtt_client_pub dl_mqtt_client_sub MQTTClient_publish_async PROPERTIES
      COMPILE_DEFINITIONS "PAHO_MQTT_IMPORTS=1")
 
 TARGET_LINK_LIBRARIES(MQTTAsync_subscribe paho-mqtt3a)
@@ -63,6 +64,7 @@ TARGET_LINK_LIBRARIES(MQTTAsync_publish_time paho-mqtt3a)
 TARGET_LINK_LIBRARIES(MQTTClient_subscribe paho-mqtt3c)
 TARGET_LINK_LIBRARIES(MQTTClient_publish paho-mqtt3c)
 TARGET_LINK_LIBRARIES(dl_mqtt_client_pub paho-mqtt3c)
+TARGET_LINK_LIBRARIES(dl_mqtt_client_sub paho-mqtt3c)
 TARGET_LINK_LIBRARIES(MQTTClient_publish_async paho-mqtt3c)
 
 INSTALL(TARGETS paho_c_sub
@@ -75,6 +77,7 @@ INSTALL(TARGETS paho_c_sub
                 MQTTClient_subscribe
                 MQTTClient_publish
 		dl_mqtt_client_pub
+		dl_mqtt_client_sub
                 MQTTClient_publish_async
 
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
