@@ -23,7 +23,8 @@ fi
 ln -svf ${CURRDIR}/dl_mqtt_client_pub.c	${PAHO_MQTT_DIR}/src/samples/dl_mqtt_client_pub.c
 ln -svf ${CURRDIR}/dl_mqtt_client_sub.c	${PAHO_MQTT_DIR}/src/samples/dl_mqtt_client_sub.c
 ## header
-ln -svf ${CURRDIR}/config_mqtt_dl.h	${PAHO_MQTT_DIR}/src/config_mqtt_dl.h
+#ln -svf ${CURRDIR}/config_mqtt_dl.h	${PAHO_MQTT_DIR}/src/config_mqtt_dl.h
+ln -svf ${CURRDIR}/config_mqtt_dl.h	${PAHO_MQTT_DIR}/src/samples/config_mqtt_dl.h
 ## scripts
 cp -vf ${CURRDIR}/Makefile_dl		${PAHO_MQTT_DIR}/Makefile
 cp -vf ${CURRDIR}/CMakeLists.txt_dl	${PAHO_MQTT_DIR}/src/samples/CMakeLists.txt
@@ -31,7 +32,7 @@ echo -e ${DLTERM_LGREEN} "\nDONE :"${DLTERM_NONE}" Install files.\n"
 
 
 # Compile
-make -C ${PAHO_MQTT_DIR}
+make -C ${PAHO_MQTT_DIR} -j4
 echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Compile.\n"
 
 
@@ -41,15 +42,17 @@ then
 	echo ""
 	if [ "$2" = "pub" ]
 	then
-		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub
+		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub $3 $4 $5
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
 	elif [ "$2" = "sub" ]
 	then
-		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub
+		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_sub $3 $4 $5
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
 	else
-		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Not Exec (${2})!\n"
+		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Unknown program name!\n"
 	fi
 else
 	echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" No need Exec!\n"
+	echo -e ${DLTERM_LGREEN}"\nNote :"${DLTERM_NONE}
+	echo -e "Type \"$0 exec PROG_NAME ProductID DeviceID SN/Password\" to run. ex.PROG_NAME={pub|sub}."
 fi
