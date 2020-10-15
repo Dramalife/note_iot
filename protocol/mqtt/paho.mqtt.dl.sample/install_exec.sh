@@ -1,8 +1,10 @@
 #! /bin/bash
 
 
-# Include "note/"
-source ~/note/lib_dramalife/terminal_color_bash.sh
+# Include
+export LIB_DRAMALIFE_PWD=/home/dramalife/note/lib_dramalife/
+export LIB_DRAMALIFE_TERMINAL_COLOR_VERSION=5002
+source ${LIB_DRAMALIFE_PWD}/lib_dramalife.sh
 
 
 # Variables

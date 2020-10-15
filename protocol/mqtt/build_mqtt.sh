@@ -8,7 +8,9 @@
 
 
 # Include
-source ~/note/lib_dramalife/terminal_color_bash.sh
+export LIB_DRAMALIFE_PWD=/home/dramalife/note/lib_dramalife/
+export LIB_DRAMALIFE_TERMINAL_COLOR_VERSION=5002
+source ${LIB_DRAMALIFE_PWD}/lib_dramalife.sh
 
 # Variables
 RTT_REPO=paho.mqtt.c
@@ -17,7 +19,7 @@ TOP_DIR=$(pwd)
 # Get source code
 if [ -e "${RTT_REPO}" ]
 then
-	echo "Exist"
+	echo "Folder \"${RTT_REPO}\" exists, updating..."
 	cd ${RTT_REPO}/
 	#git pull
 	cd ..
