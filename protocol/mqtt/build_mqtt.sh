@@ -11,9 +11,10 @@
 export LIB_DRAMALIFE_PWD=/home/dramalife/note/lib_dramalife/
 export LIB_DRAMALIFE_TERMINAL_COLOR_VERSION=5002
 source ${LIB_DRAMALIFE_PWD}/lib_dramalife.sh
+source paho.mqtt.dl.sample/pub.sh
 
 # Variables
-RTT_REPO=paho.mqtt.c
+RTT_REPO=paho.mqtt.c/paho.mqtt.c/
 TOP_DIR=$(pwd)
 
 # Get source code
@@ -22,15 +23,16 @@ then
 	echo "Folder \"${RTT_REPO}\" exists, updating..."
 	cd ${RTT_REPO}/
 	#git pull
-	cd ..
+	cd ${TOP_DIR}
 else
-	git clone https://github.com/eclipse/paho.mqtt.c.git
+	#git clone https://github.com/eclipse/paho.mqtt.c.git
+	~/note/lib_dramalife/exec_files/git_sparse_clone.sh paho.mqtt.c https://gitee.com/Dramalife/tools_note.git
 fi
 
 # Call script
 cd paho.mqtt.dl.sample
 echo "pass ($1)($2)"
-./install_exec.sh $1 $2 $3 $4 $5
+./install_exec.sh ${CMD1} ${CMD2} ${PRODUCT_ID} ${DEVICE_ID} ${DEVICE_PASSWORD} ${RTT_REPO}
 ## Check return
 if [ $? = 0 ]
 then

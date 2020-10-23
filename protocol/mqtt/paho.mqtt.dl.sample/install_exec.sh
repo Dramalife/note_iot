@@ -5,11 +5,12 @@
 export LIB_DRAMALIFE_PWD=/home/dramalife/note/lib_dramalife/
 export LIB_DRAMALIFE_TERMINAL_COLOR_VERSION=5002
 source ${LIB_DRAMALIFE_PWD}/lib_dramalife.sh
+source pub.sh
 
 
 # Variables
 CURRDIR=$(pwd)
-PAHO_MQTT_DIR=${CURRDIR}/../paho.mqtt.c/
+PAHO_MQTT_DIR=${CURRDIR}/../${RTT_REPO}
 
 
 # Check direcotry variable
@@ -39,16 +40,21 @@ echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Compile.\n"
 
 
 # Exec
-if [ "$1" = "exec" ]
+#CMD1=$1
+#CMD2=${CMD2}
+#PRODUCT_ID=${PRODUCT_ID}
+#DEVICE_ID=${DEVICE_ID}
+#DEVICE_PASSWORD=${DEVICE_PASSWORD}
+if [ "${CMD1}" = "exec" ]
 then
 	echo ""
-	if [ "$2" = "pub" ]
+	if [ "${CMD2}" = "pub" ]
 	then
-		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub $3 $4 $5
+		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_pub ${PRODUCT_ID} ${DEVICE_ID} ${DEVICE_PASSWORD}
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
-	elif [ "$2" = "sub" ]
+	elif [ "${CMD2}" = "sub" ]
 	then
-		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_sub $3 $4 $5
+		${PAHO_MQTT_DIR}build/output/samples/dl_mqtt_client_sub ${PRODUCT_ID} ${DEVICE_ID} ${DEVICE_PASSWORD}
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Exec (${2}).\n"
 	else
 		echo -e ${DLTERM_LGREEN}"\nDONE :"${DLTERM_NONE}" Unknown program name!\n"
