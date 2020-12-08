@@ -19,13 +19,14 @@ endif
 
 
 all: source_download
+	make -C . cone NAME=ssl_client1
+	make -C . cone NAME=ssl_server
+	make -C . cone NAME=aescrypt2
+
+cone:
 	gcc \
-	-o ssl_client1.out \
-	mbedtls/programs/ssl/ssl_client1.c \
-	-I ./mbedtls/include/ -L ./mbedtls/library/ -lmbedtls -lmbedx509 -lmbedcrypto
-	gcc \
-	-o ssl_server.out \
-	mbedtls/programs/ssl/ssl_server.c \
+	-o $(NAME).out \
+	sample_code/$(NAME).c \
 	-I ./mbedtls/include/ -L ./mbedtls/library/ -lmbedtls -lmbedx509 -lmbedcrypto
 
 clean:
