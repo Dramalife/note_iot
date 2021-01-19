@@ -7,6 +7,13 @@ rtconfig.h
 + #define HAVE_SYS_SELECT_H
 ```
 
+#### Dependents
+```bash
+apt install gcc-arm-none-eabi
+apt install scons
+apt-get install libncurses5-dev
+```
+
 
 ## FreeRTOS
 
