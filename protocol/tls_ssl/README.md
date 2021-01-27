@@ -6,6 +6,7 @@
 [HASH online, ](https://hash.online-convert.com/)
 
 [知乎(浅谈SSL/TLS工作原理)](https://zhuanlan.zhihu.com/p/36981565)
+(md)[浅析TLS 1.2协议](./doc/tls1.2_whxl.segmentfault.com.md)
 
 Ref : https://segmentfault.com/a/1190000005998141
 
@@ -25,4 +26,6 @@ make
 ./programs/ssl/ssl_server
 ./programs/ssl/ssl_client1
 ```
+
+HMAC : Hash-based Message Authentication Code
 
