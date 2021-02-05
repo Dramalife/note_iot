@@ -29,7 +29,12 @@ cd ${RTT_REPO}/
 cd bsp/qemu-vexpress-a9/
 
 # Configuration
-# scons --menuconfig
+if [ -e "~/.env/env.sh" ]
+then
+	echo ""
+else
+	scons --menuconfig
+fi
 
 # Compile
 source ~/.env/env.sh

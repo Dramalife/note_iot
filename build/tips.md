@@ -7,6 +7,14 @@ rtconfig.h
 + #define HAVE_SYS_SELECT_H
 ```
 
+#### error: conflicting types for 'pthread_kill'
+```
+# avoid ;-(
+RT-Thread Components  --->
+	POSIX layer and C standard library  --->
+		[ ] Enable pthreads APIs
+```
+
 #### Dependents
 ```bash
 apt install gcc-arm-none-eabi
