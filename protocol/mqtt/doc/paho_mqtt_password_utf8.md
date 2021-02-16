@@ -17,7 +17,7 @@ MQTTResponse MQTTClient_connectAll(MQTTClient handle, MQTTClient_connectOptions*
                 MQTTProperties* connectProperties, MQTTProperties* willProperties);
 // ...
 if ((options->username && !UTF8_validateString(options->username)) ||
-		(options->password && !UTF8_validateString(options->password)))	// ?????
+		(options->password && !UTF8_validateString(options->password)))	// ????? // :-)
 // ...
 
 
@@ -28,4 +28,25 @@ if ((options->username && !UTF8_validateString(options->username)) ||
 
 
 MQTTClient_connect
+```
+
+
+#### USE binary password !
+```c
+// MQTTClient.h : MQTTClient_connectOptions
+/**  
+ * Optional binary password.  Only checked and used if the password option is NULL
+ */
+struct
+{    
+	int len;           /**< binary password length */
+	const void* data;  /**< binary password data */
+} binarypwd;
+
+
+//conn_opts.password=PASSWORD;
+//src/samples/dl_mqtt_client_sub.c,main,96 :Failed to connect, return code -5
+
+conn_opts.binarypwd.len = sizeof(PASSWORD);
+conn_opts.binarypwd.data = PASSWORD;
 ```
